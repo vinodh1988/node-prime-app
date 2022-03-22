@@ -1,4 +1,8 @@
 const fs = require("fs")
+const obj = require("./second")
+
+console.log(obj.members);
+obj.fun();
 
 fs.readFile("package.json","utf-8",function(err,data){
   if(err) 
