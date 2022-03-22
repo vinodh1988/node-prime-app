@@ -1,14 +1,10 @@
-const fs = require("fs")
-const obj = require("./second")
+const express = require("express")
+ const app = express()
 
-console.log(obj.members);
-obj.fun();
+ app.get("/",function(request,response){
+     response.send("Node js is working...!!!")
+ })
 
-fs.readFile("package.json","utf-8",function(err,data){
-  if(err) 
-     console.log(err)
-  else
-     console.log(data)
-})
-
-console.log("Other part of the app")
+ app.listen("8000",function(){
+     console.log("server is running on port 8000")
+ })
