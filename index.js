@@ -1,9 +1,18 @@
 const express = require("express")
  const app = express()
  const path =require("path")
+const people = require('./routes/people')
+ 
+app.use(express.urlencoded({extended: true}))
+app.use(express.json())
 
  app.use(express.static(path.join(__dirname,"public/styles")))
  app.use(express.static(path.join(__dirname,"public/scripts")))
+ app.use(express.static(path.join(__dirname,"node_modules/bootstrap/dist/css")))
+ app.use(express.static(path.join(__dirname,"node_modules/bootstrap/dist/js")))
+
+ app.use ("/people",people)
+ 
  app.get("/",function(request,response){
      response.send("Node js is working...!!!")
  })
