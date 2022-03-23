@@ -17,4 +17,18 @@ const data=
    })
 })
 
+
+route.get("/report",function(request,response){
+  dbops.getPeople(function(err,data){
+             if(err)
+                response.send("Unable to load data")
+             else
+                response.render("people",{people:data,programmer:"Joseph"})
+  })
+})
+
+//render will call template mentioned in the parameter
+//it will look for file called people with extension of configured template engines
+//template engine is something which takes a script input executes it and produces html output
+
 module.exports = route
