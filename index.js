@@ -2,6 +2,7 @@ const express = require("express")
  const app = express()
  const path =require("path")
 const people = require('./routes/people')
+const api=require('./routes/api')
  
 app.use(express.urlencoded({extended: true}))
 app.use(express.json())
@@ -15,6 +16,7 @@ app.set('view engine', 'pug'); //configuring view Engine
  app.use(express.static(path.join(__dirname,"node_modules/bootstrap/dist/js")))
 
  app.use ("/people",people)
+ app.use("/peopleapi",api)
  
  app.get("/",function(request,response){
      response.send("Node js is working...!!!")

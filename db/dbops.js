@@ -13,6 +13,13 @@ const operations ={
 
      getPerson: function(sno,callback){
        connection.query("select * from people where sno=?",[sno],callback)
+     },
+     deletePerson: function(sno,callback){
+      connection.query("delete from people where sno=?",[sno],callback)
+    },
+
+     updatePerson: function(sno,name,city,callback){
+       connection.query("update people set name=?, city= ? where sno=?",[name,city,sno],callback)
      }
    }
 
