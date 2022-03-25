@@ -3,6 +3,7 @@ const express = require("express")
  const path =require("path")
 const people = require('./routes/people')
 const api=require('./routes/api')
+const ormapi=require('./orm/routes')
  
 app.use(express.urlencoded({extended: true}))
 app.use(express.json())
@@ -17,6 +18,7 @@ app.set('view engine', 'pug'); //configuring view Engine
 
  app.use ("/people",people)
  app.use("/peopleapi",api)
+ app.use("/orm",ormapi)
  
  app.get("/",function(request,response){
      response.send("Node js is working...!!!")
